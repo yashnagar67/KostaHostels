@@ -8,7 +8,7 @@ const HostelDetails = () => {
 
   useEffect(() => {
     // CHALLENGE: Fetch the single hostel data
-    axios.get(`http://localhost:3000/api/hostels/${id}`)
+    axios.get(`https://hostel-finder-backend-viny.onrender.com/api/hostels/${id}`)
     .then((res) => {setHostel(res.data)
         console.log(res)
     })
