@@ -20,6 +20,7 @@ const HomePage = () => {
   }
 
   useEffect(() => {
+    setLoading(true)
     async function fetchData() {
       const res = await axios.get("https://hostel-finder-backend-viny.onrender.com/api/hostels");
       const data = res.data;
@@ -29,6 +30,8 @@ const HomePage = () => {
       fetchData();
     } catch (err) {
       console.log("getting some error");
+    } finally{
+      setLoading(false)
     }
   }, []);
 
