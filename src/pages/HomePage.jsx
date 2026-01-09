@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-hot-toast'; 
 
 const HomePage = () => {
   const [hostels, setHostels] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const hasFetched = useRef(false);
 
   let filteredHostels = hostels.filter((hostel) => {
     if (searchTerm === "") return true;
@@ -20,19 +22,23 @@ const HomePage = () => {
   }
 
   useEffect(() => {
-    setLoading(true)
+    if (hasFetched.current) return;
+    hasFetched.current = true;
+
     async function fetchData() {
-      const res = await axios.get("https://hostel-finder-backend-viny.onrender.com/api/hostels");
-      const data = res.data;
-      setHostels(data);
+      const loadingToast = toast.loading("Finding Available Hostels.......");
+      
+      try {
+        const res = await axios.get("https://hostel-finder-backend-viny.onrender.com/api/hostels");
+        const data = res.data;
+        setHostels(data);
+        toast.success("Hostels Fetched!", { id: loadingToast });
+      } catch (err) {
+        console.log("getting some error");
+        toast.error("No Hostel Found", { id: loadingToast });
+      }
     }
-    try {
-      fetchData();
-    } catch (err) {
-      console.log("getting some error");
-    } finally{
-      setLoading(false)
-    }
+    fetchData();
   }, []);
 
   return (
