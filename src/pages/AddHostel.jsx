@@ -70,7 +70,7 @@ useEffect(() => {
          data.append("imgUrl",file)
 
          try{
-            const res=await axios.post("http://localhost:3000/api/ai/extract",data,{
+            const res=await axios.post("https://hostel-finder-backend-viny.onrender.com/api/ai/extract",data,{
                 headers: { 'Content-Type': 'multipart/form-data' },
                 
             })
@@ -135,7 +135,7 @@ useEffect(() => {
       };
       console.log("post request has beenb set,watting for response")
 
-     let res= await axios.post('http://localhost:3000/api/hostels', finalData);
+     let res= await axios.post('https://hostel-finder-backend-viny.onrender.com/api/hostels', finalData);
      console.log(res)
       toast.success("Hostel Added Successfully!");
       navigate('/'); // Go back home

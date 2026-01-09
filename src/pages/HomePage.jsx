@@ -21,7 +21,7 @@ const HomePage = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get("http://localhost:3000/api/hostels");
+      const res = await axios.get("https://hostel-finder-backend-viny.onrender.com/api/hostels");
       const data = res.data;
       setHostels(data);
     }
