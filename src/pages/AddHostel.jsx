@@ -374,7 +374,7 @@ useEffect(() => {
           <span className="font-medium">RO Water</span>
         </div>
       </label>
-      <button onClick={()=>{console.log(formData.facilities)}}>Chek selected facilites</button>
+     
     </div>
   </div>
 </div>
