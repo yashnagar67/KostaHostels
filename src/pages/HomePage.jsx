@@ -183,7 +183,7 @@ const HomePage = () => {
                 </div>
 
                 <div className="flex items-center gap-2 mb-5 text-gray-500 text-sm bg-gray-50 p-2 rounded-lg w-fit">
-                  <span className="text-lg text-blue-600"><img className='w-8' src="/google-maps.png" alt="" /></span>
+                  <span className="text-lg text-blue-600"><img className='max-w-8' src="/google-maps.png" alt="" /></span>
                   <span className="font-medium">{hostel.address}</span>
                 </div>
 
