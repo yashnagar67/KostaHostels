@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast'; 
 
+
 const HomePage = () => {
   const [hostels, setHostels] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -182,7 +183,7 @@ const HomePage = () => {
                 </div>
 
                 <div className="flex items-center gap-2 mb-5 text-gray-500 text-sm bg-gray-50 p-2 rounded-lg w-fit">
-                  <span className="text-lg text-blue-600">🎓</span>
+                  <span className="text-lg text-blue-600"><img className='w-8' src="/google-maps.png" alt="" /></span>
                   <span className="font-medium">{hostel.address}</span>
                 </div>
 
